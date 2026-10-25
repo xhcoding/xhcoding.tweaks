@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "xhcoding.tweaks",
+  "name": "My Tweaks",
+  "version": "1.0.0",
+  "author": "xhcoding",
+  "description": "Personal customizations. SUPER+L toggles the active workspace between dwindle and monocle.",
+  "kinds": [
+    "service"
+  ],
+  "entryPoints": {
+    "service": "Service.qml"
+  }
+}
