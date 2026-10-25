@@ -7,15 +7,16 @@ Home for personal Omarchy customizations.
 Toggles the active workspace between `dwindle` and `monocle`.
 
 Hyprland keybindings live in Hyprland's config, not in the plugin, so
-installing the plugin does **not** bind the key. On each machine, run the
-installer once (it is idempotent):
+installing the plugin does not bind the key. On each machine, run the
+installer once (idempotent — it appends the unbind + bind to
+`~/.config/hypr/bindings.lua`):
 
 ```bash
+omarchy plugin add https://github.com/xhcoding/xhcoding.tweaks --enable
 ~/.config/omarchy/plugins/xhcoding.tweaks/bin/setup.sh
 ```
 
-It appends the unbind + bind to `~/.config/hypr/bindings.lua`. If the key
-does nothing afterwards, run `hyprctl reload`.
+If the key does nothing afterwards, run `hyprctl reload`.
 
 - `bin/toggle-workspace-layout` — the toggle logic. Persists the per-workspace
   choice to `~/.local/state/omarchy/workspace-layouts/` (which the shipped

@@ -4,8 +4,8 @@ import Quickshell.Io
 
 // Headless service that tracks the active workspace's tiled layout and can
 // toggle it between dwindle and monocle. The toggle logic lives in
-// bin/toggle-workspace-layout (also bound to SUPER+L in hypr/bindings.lua),
-// so the keybinding and IPC share one implementation.
+// bin/toggle-workspace-layout, so the service and the SUPER+L keybinding
+// (installed per machine via bin/setup.sh) share one implementation.
 Item {
   id: root
 
