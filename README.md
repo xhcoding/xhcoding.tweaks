@@ -6,14 +6,26 @@ Home for personal Omarchy customizations.
 
 Toggles the active workspace between `dwindle` and `monocle`.
 
-- `bin/toggle-workspace-layout` — the toggle logic. Bound to SUPER+L in
-  `~/.config/hypr/bindings.lua`. Persists the per-workspace choice to
-  `~/.local/state/omarchy/workspace-layouts/` (which the shipped
-  `workspace-layouts.lua` loads on every Hyprland config reload) and sends
-  a desktop notification with the result.
-- `Service.qml` — headless service that tracks the active workspace's
-  layout (polled every 5 s) and can toggle via IPC:
+Hyprland keybindings live in Hyprland's config, not in the plugin, so
+installing the plugin does **not** bind the key. On each machine, run the
+installer once (it is idempotent):
+
+```bash
+~/.config/omarchy/plugins/xhcoding.tweaks/bin/setup.sh
+```
+
+It appends the unbind + bind to `~/.config/hypr/bindings.lua`. If the key
+does nothing afterwards, run `hyprctl reload`.
+
+- `bin/toggle-workspace-layout` — the toggle logic. Persists the per-workspace
+  choice to `~/.local/state/omarchy/workspace-layouts/` (which the shipped
+  `workspace-layouts.lua` loads on every Hyprland config reload) and sends a
+  desktop notification with the result. Works standalone:
 
   ```bash
-  omarchy-shell shell call xhcoding.tweaks toggle
+  ~/.config/omarchy/plugins/xhcoding.tweaks/bin/toggle-workspace-layout monocle
   ```
+
+- `Service.qml` — headless service that tracks the active workspace's layout
+  (polled every 5 s). Enable it with `omarchy plugin enable xhcoding.tweaks`
+  (not required for the keybinding to work).
